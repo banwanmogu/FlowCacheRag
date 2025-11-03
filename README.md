@@ -51,8 +51,7 @@ C -->|Miss| E[VectorStore (RAG)]
 E --> F[OpenAI Embeddings]
 F -->|New Docs| G[Cache Add + Response]
 B -->|Structured Output| H[ResponseFormat]
-
-```  
+```
 
 ## 🧱 Project Structure
 .
