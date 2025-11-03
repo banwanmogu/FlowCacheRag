@@ -39,29 +39,19 @@
 
 ---
 
-## 🧩 System Architecture
-
-```mermaid
-graph TD
-
-A[User Query] -->|Input| B[LangGraph Agent]
-B -->|Tool Invocation| C[Semantic Cache]
-C -->|Hit| D[Return Cached Context]
-C -->|Miss| E[VectorStore (RAG)]
-E --> F[OpenAI Embeddings]
-F -->|New Docs| G[Cache Add + Response]
-B -->|Structured Output| H[ResponseFormat]
-```
 
 ## 🧱 Project Structure
+
+```plaintext
 .
-├── main.py                    # 🚀 Entry point (agent loop)
-├── .env                       # Environment variables (e.g. OPENAI_API_KEY)
-├── requirements.txt            # Dependencies
-├── README.md                   # This file
-└── utils/
-    ├── semantic_cache.py       # Custom LRU + embedding cache
-    └── loaders.py              # WebBaseLoader for external sources
+├── 🚀 main.py                # Entry point (agent loop)
+├── 📝 .env                   # Environment variables (OPENAI_API_KEY)
+├── 📦 requirements.txt       # Dependencies
+├── 📖 README.md             # Documentation
+└── 📂 utils/
+    ├── 🧠 semantic_cache.py  # Custom LRU + embedding cache
+    └── 🔄 loaders.py        # WebBaseLoader for external sources
+```
 
 ## ⚙️ Installation
 
