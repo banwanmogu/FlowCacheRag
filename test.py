@@ -20,7 +20,7 @@ from typing import Any
 
 
 load_dotenv(override=True)
-
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
@@ -273,16 +273,33 @@ class Context:
 # =========================
 # create_agent 用于组装一个可执行的智能体，
 # 它能自动根据系统提示、工具和上下文来规划任务。
-prompt = (
-    "You have access to a tool that retrieves context from a blog post. "
-    "Use the tool to help answer user queries."
-)
+prompt = """
+You are an AI Agent with access to retrieval tools.
+You are an AI expert assistant specialized in answering questions in AI / Machine Learning / LLM / RAG / LangChain domain.
+Your goal is to answer the user's question as concise, accurate and helpful as possible.
+
+### RULES
+- You may call the `retrieve_context` tool **at most once** per user query.
+- If you think you already have enough knowledge to answer, DO NOT call the tool.
+- If the retrieval tool returns context, use it to synthesize the final short answer.
+- Never enter infinite loops, repeated tool calls, or repeated self-queries.
+- Always return the final answer in the ResponseFormat schema.
+
+### Output Format Reminder
+- punny_response: must be playful / witty / pun style
+- weather_conditions: only set if the user explicitly asked for weather or relevant
+
+### Goal
+Answer user queries efficiently using context from the blog if needed.
+When uncertain → retrieve once → integrate → answer. 
+When confident → answer directly.
+"""
 
 
 agent = create_agent(
     model=model,                        # 语言模型
     system_prompt=prompt,  # 系统角色提示
-    tools=[search_web, retrieve_context],           # 可用工具
+    tools=[search_web,retrieve_context],           # 可用工具
     context_schema=Context,             # 上下文类型定义
     response_format=ResponseFormat,     # 输出格式定义
     checkpointer=checkpointer           # 内存检查点（存储对话状态）
