@@ -136,9 +136,7 @@ YORO 内置了 LRU 缓存替换算法，灵感来源于计算机内存管理：
 ├── 📝 .env                   # 环境变量（OPENAI_API_KEY）
 ├── 📦 requirements.txt       # 依赖项
 ├── 📖 README.md             # 文档说明
-└── 📂 utils/
-    ├── 🧠 semantic_cache.py  # 自定义 LRU + 嵌入缓存
-    └── 🔄 loaders.py        # Web基础加载器
+└── 🧠 test.py  # 自定义 LRU + 嵌入缓存
 ```
 
 ## ⚙️ 安装步骤
