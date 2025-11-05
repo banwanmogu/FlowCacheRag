@@ -2,6 +2,7 @@
 
 [🇨🇳 中文](README.md) | [🇺🇸 English](README_ENG.md)
 
+# webui版现已发布在webui分支！本地部署或者在线尝试：https://huggingface.co/spaces/MOGU111/YORO/tree/main
 
 <div align="center">
   <img src="image-2.png" width="300" alt="YORO Logo" />
