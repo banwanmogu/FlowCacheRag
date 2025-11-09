@@ -196,8 +196,8 @@ cache.stats()
 | `dotenv` | ≥1.0 | 环境变量加载 |
 
 ## 📸 预览
-![alt text](images\webquestion.png)
-![alt text](images\terminalresponse.png)
+![alt text](webquestion.png)
+![alt text](terminalresponse.png)
 ### 可以看到，在重复输入类似相关问题时，直接访问缓存，高效便捷
 
 ## Star History
