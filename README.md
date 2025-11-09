@@ -196,7 +196,7 @@ cache.stats()
 | `dotenv` | ≥1.0 | 环境变量加载 |
 
 ## 📸 预览
-![alt text](image.png)
+
 
 ## Star History
 
