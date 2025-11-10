@@ -295,12 +295,12 @@ def retrieve_context(query: str, bm25_k: int = 10, dense_k: int = 5, bm25_thresh
     """
 
     # 1️⃣ 语义缓存命中
-    hit = semantic_cache.get(query)
-    if hit is not None:
-        print(f"[Cache] HIT (score={hit['score']:.3f}) for query: {query[:50]}...")
-        return hit["response"], hit["docs"]
+    # hit = semantic_cache.get(query)
+    # if hit is not None:
+    #     print(f"[Cache] HIT (score={hit['score']:.3f}) for query: {query[:50]}...")
+    #     return hit["response"], hit["docs"]
 
-    print("[Cache] MISS -> Starting cascade retrieval...")
+    # print("[Cache] MISS -> Starting cascade retrieval...")
 
     # 2️⃣ BM25 检索阶段
     bm25_results = bm25_retrieve(query, top_k=bm25_k)

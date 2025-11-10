@@ -66,16 +66,18 @@ YORO 内置了 LRU 缓存替换算法，灵感来源于计算机内存管理：
 
 ---
 
-## 🌟 主要特性
+## 🌟 对比测试实验
+基于https://lilianweng.github.io/posts/2023-06-23-agent/的大模型相关知识博客，本项目设计了14对问答对，模拟常见的现实情况中【重复问题】【相同领域问题】的询问类问题，对含cache和不含cache的agent进行对比实验，结果如图：
 
-✅ **RAG**
-- 使用 `InMemoryVectorStore` 进行语义检索
-- 使用 `RecursiveCharacterTextSplitter` 嵌入和分割大型文档
+<div align="center">
+  <img src="evaluate_result.png" width="420">
+</div>
 
-✅ **自定义语义缓存**
-- LRU（最近最少使用）+ 基于余弦相似度的缓存
-- 智能缓存命中检测（可调节 `threshold`）
-- 减少重复的嵌入和检索成本
+
+✅ p50 latency减少百分之13.6  
+
+✅  p99 latency 减少百分之28.6
+
 
 ---
 
